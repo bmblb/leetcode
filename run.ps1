@@ -11,8 +11,12 @@ if ($lang -eq "rust") {
 
     Measure-Command { $path | Out-Default } | Select-Object @{n="time";e={$_.Minutes,"Minutes",$_.Seconds,"Seconds",$_.TotalMilliseconds,"Milliseconds" -join " "}}
 }
-elseif ($lang -eq "js") {
-    $path = Resolve-Path -Path "$lang\$demo\index.js" | Out-Null;
+elseif ($lang -eq "node") {
+    $path = Resolve-Path -Path "$lang\\$demo\\index.js" -Relative;
 
+    Write-Output("Node");
     Measure-Command { node $path | Out-Default } | Select-Object @{n="time";e={$_.Minutes,"Minutes",$_.Seconds,"Seconds",$_.TotalMilliseconds,"Milliseconds" -join " "}}
+    
+    Write-Output("Deno");
+    Measure-Command { deno $path | Out-Default } | Select-Object @{n="time";e={$_.Minutes,"Minutes",$_.Seconds,"Seconds",$_.TotalMilliseconds,"Milliseconds" -join " "}}
 }
