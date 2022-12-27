@@ -22,7 +22,7 @@ fn to_node(input: Vec<i32>) -> Option<Box<ListNode>> {
 }
 
 fn add_two_numbers(l1: Option<Box<ListNode>>, l2: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
-    let mut result = Box::new(ListNode { val: 0, next: None });
+    let mut result = Box::new(ListNode::new(0));
     let mut left = l1;
     let mut right = l2;
     let mut res = &mut result;
@@ -54,7 +54,7 @@ fn add_two_numbers(l1: Option<Box<ListNode>>, l2: Option<Box<ListNode>>) -> Opti
         }
 
         // let mut next = Some(Box::new(ListNode { val: 0, next: None }));
-        res.next = Some(Box::new(ListNode { val: 0, next: None }));
+        res.next = Some(Box::new(ListNode::new(0)));
         res = res.next.as_mut().unwrap();
     }
 
