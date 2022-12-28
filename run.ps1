@@ -12,11 +12,13 @@ if ($lang -eq "rust") {
     Measure-Command { $path | Out-Default } | Select-Object @{n="time";e={$_.Minutes,"Minutes",$_.Seconds,"Seconds",$_.TotalMilliseconds,"Milliseconds" -join " "}}
 }
 elseif ($lang -eq "node") {
-    $path = Resolve-Path -Path "$lang\\$demo\\index.js" -Relative;
+    $path = Resolve-Path -Path "$lang\\index_node.mjs" -Relative;
 
     Write-Output("Node");
-    Measure-Command { node $path | Out-Default } | Select-Object @{n="time";e={$_.Minutes,"Minutes",$_.Seconds,"Seconds",$_.TotalMilliseconds,"Milliseconds" -join " "}}
-    
+    node --experimental-modules $path $demo
+
+    $path = Resolve-Path -Path "$lang\\index_deno.js" -Relative;
+
     Write-Output("Deno");
-    Measure-Command { deno $path | Out-Default } | Select-Object @{n="time";e={$_.Minutes,"Minutes",$_.Seconds,"Seconds",$_.TotalMilliseconds,"Milliseconds" -join " "}}
+    deno run --allow-hrtime $path $demo
 }
