@@ -1,9 +1,5 @@
-import { run as leet_9 } from './leet_9/index.mjs';
+import { tests } from './entry.mjs';
 import { hrtime } from 'node:process';
-
-const tests = {
-    leet_9
-};
 
 const NS_PER_SEC = 1e9;
 function to_milli(time) {
