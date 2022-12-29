@@ -21,6 +21,19 @@ fn to_node(input: Vec<i32>) -> Option<Box<ListNode>> {
     })
 }
 
+fn from_node(input: Option<Box<ListNode>>) -> i32 {
+    let mut result = vec![];
+
+    let mut node = input;
+
+    while let Some(l) = node {
+        result.push(l.val);
+        node = l.next;
+    }
+
+    result.iter().enumerate().map(|(index, value)| { value * 10_i32.pow(index as u32) }).sum()
+}
+
 fn add_two_numbers(l1: Option<Box<ListNode>>, l2: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
     let mut result = Box::new(ListNode::new(0));
     let mut left = l1;
@@ -69,10 +82,7 @@ pub fn main() {
     let node1 = to_node(vec![2,4,3]);
     let node2 = to_node(vec![5,6,4]);
 
-    // println!("{:?}", node1);
-    // println!("{:?}", node2);
-
     let res = add_two_numbers(node1, node2);
 
-    // println!("{:?}", res);
+    assert_eq!(from_node(res), 807)
 }

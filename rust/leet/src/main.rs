@@ -6,7 +6,7 @@ mod leet_1;
 mod leet_2;
 mod leet_9;
 
-fn format_duration(value: Duration) -> String {
+fn format_duration(value: &Duration) -> String {
     let units = vec!["ns", "μs", "ms", "s"];
     let mut ns = value.as_nanos() as u64;
     let mut result = vec![];
@@ -36,11 +36,18 @@ fn main() {
         let name = args[0].as_str();
 
         if let Some(f) = map.get(name) {
-            let start = Instant::now();
-            f();
-            let end = Instant::now();
+            let mut result = Vec::with_capacity(100);
 
-            println!("{name} took {}", format_duration(end.checked_duration_since(start).unwrap()));
+            for _ in 0..100 {
+                let start = Instant::now();
+                f();
+                let end = Instant::now();
+                result.push(end.checked_duration_since(start).unwrap());
+            }
+
+            result.sort();
+
+            println!("{name} took {}", format_duration(result.get(result.len() / 2 - 1 as usize).unwrap()));
         }
         else {
             println!("Cannot find test {}", args[0]);

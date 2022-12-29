@@ -33,6 +33,16 @@ fn is_palindrome(x: i32) -> bool {
     true
 }
 
+// String solution is 6 times slower
+// fn is_palindrome_str(x: i32) -> bool {
+//     let string = x.to_string();
+//     let string2 = string.chars().rev().collect::<String>();
+//     if string == string2 {
+//         return true;
+//     }
+//     false
+// }
+
 #[allow(dead_code)]
 pub fn main() {
     assert!(is_palindrome(121));
