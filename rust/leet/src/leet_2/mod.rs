@@ -61,17 +61,18 @@ fn add_two_numbers(l1: Option<Box<ListNode>>, l2: Option<Box<ListNode>>) -> Opti
     Some(result)
 }
 
-fn main() {
+#[allow(dead_code)]
+pub fn main() {
     // [2,4,3]
     // [5,6,4]
     // [7,0,8]
     let node1 = to_node(vec![2,4,3]);
     let node2 = to_node(vec![5,6,4]);
 
-    println!("{:?}", node1);
-    println!("{:?}", node2);
+    // println!("{:?}", node1);
+    // println!("{:?}", node2);
 
     let res = add_two_numbers(node1, node2);
 
-    println!("{:?}", res);
+    // println!("{:?}", res);
 }

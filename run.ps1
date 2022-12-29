@@ -7,9 +7,9 @@ if ($args.Count -eq 1) {
 }
 
 if ($lang -eq "rust") {
-    $path = Resolve-Path -Path "$lang\$demo\target\debug\$demo.exe" | Out-Null;
-
-    Measure-Command { $path | Out-Default } | Select-Object @{n="time";e={$_.Minutes,"Minutes",$_.Seconds,"Seconds",$_.TotalMilliseconds,"Milliseconds" -join " "}}
+    $path = Resolve-Path -Path "$lang\leet\target\release\leet.exe" -Relative;
+    
+    Invoke-Expression "$path $demo"
 }
 elseif ($lang -eq "node") {
     $path = Resolve-Path -Path "$lang\\index_node.mjs" -Relative;

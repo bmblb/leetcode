@@ -32,7 +32,8 @@ fn is_palindrome(x: i32) -> bool {
     true
 }
 
-fn main() {
+#[allow(dead_code)]
+pub fn main() {
     assert!(is_palindrome(121));
     assert!(!is_palindrome(-121));
     assert!(!is_palindrome(10));

@@ -1,9 +1,9 @@
-import { tests } from './entry.mjs';
+import { tests, format } from './entry.mjs';
 import { hrtime } from 'node:process';
 
 const NS_PER_SEC = 1e9;
-function to_milli(time) {
-    return (time[0] * NS_PER_SEC + time[1]) / 1e6;
+function to_nano(time) {
+    return (time[0] * NS_PER_SEC + time[1]);
 }
 
 function measure(name) {
@@ -20,12 +20,12 @@ function measure(name) {
             tests[name]();
             const end = hrtime(start);
             
-            results.push(to_milli(end));
+            results.push(to_nano(end));
         }
 
         results.sort((a, b) => a - b);
         const result = results[Math.floor(results.length / 2)];
-        log(`${name} took ${result}ms on average`);
+        log(`${name} took ${format(result)} on average`);
     }
     else {
         log(`Couldn't find test ${name}`);

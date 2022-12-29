@@ -1,4 +1,4 @@
-import { tests } from './entry.mjs';
+import { tests, format } from './entry.mjs';
 
 const NS_PER_SEC = 1e9;
 function to_milli(time) {
@@ -22,11 +22,11 @@ function measure(name) {
             results.push(end - start);
         }
 
-        results = results.map(x => Math.floor(x * 10000) / 10000);
+        results = results.map(x => Math.floor(x * 1e6));
 
         results.sort((a, b) => a - b);
         const result = results[Math.floor(results.length / 2)];
-        log(`${name} took ${result}ms on average`);
+        log(`${name} took ${format(result)} on average`);
     }
     else {
         log(`Couldn't find test ${name}`);
