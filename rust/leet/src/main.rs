@@ -5,6 +5,7 @@ use std::time::{Instant, Duration};
 mod leet_1;
 mod leet_2;
 mod leet_9;
+mod leet_13;
 
 fn format_duration(value: &Duration) -> String {
     let units = vec!["ns", "μs", "ms", "s"];
@@ -29,7 +30,8 @@ fn main() {
 
     let map: HashMap<&str, fn()> = HashMap::from([
         ("leet_2", leet_2::main as fn()),
-        ("leet_9", leet_9::main as fn())
+        ("leet_9", leet_9::main as fn()),
+        ("leet_13", leet_13::main as fn())
     ]);    
 
     if args.len() > 0 {
