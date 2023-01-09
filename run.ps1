@@ -7,6 +7,11 @@ if ($args.Count -eq 1) {
 }
 
 function Invoke-RunRust {
+    Set-Location -Path "rust\leet"
+    
+    Invoke-Expression "cargo build --release"
+    
+    Set-Location -Path "../.."
     $path = Resolve-Path -Path "rust\leet\target\release\leet.exe" -Relative;
     
     Write-Output("Rust");
