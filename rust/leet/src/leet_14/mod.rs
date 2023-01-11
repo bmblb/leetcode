@@ -1,6 +1,6 @@
 // Cons: long solution, extra string conversion
 // Pros: fn will iterate all strings char by char bailing out early
-fn _longest_common_prefix(strs: Vec<String>) -> String {
+fn longest_common_prefix(strs: Vec<String>) -> String {
     let mut iterators: Vec<_> = strs.iter().map(|value| {
         value.chars()
     }).collect();
@@ -42,21 +42,21 @@ fn _longest_common_prefix(strs: Vec<String>) -> String {
      })
 }
 
-fn longest_common_prefix(strs: Vec<String>) -> String { 
-    match strs.is_empty() {
-        true => "".to_string(),
-        _ => {
-            strs.iter().skip(1).fold(strs[0].clone(), |acc, x| {
-                 acc
-                    .chars()
-                    .zip(x.chars())
-                    .take_while(|(x,y)| x == y)
-                    .map(|(x, _)| x)
-                    .collect()
-            })
-        }
-    }
-}
+// fn longest_common_prefix(strs: Vec<String>) -> String { 
+//     match strs.is_empty() {
+//         true => "".to_string(),
+//         _ => {
+//             strs.iter().skip(1).fold(strs[0].clone(), |acc, x| {
+//                  acc
+//                     .chars()
+//                     .zip(x.chars())
+//                     .take_while(|(x,y)| x == y)
+//                     .map(|(x, _)| x)
+//                     .collect()
+//             })
+//         }
+//     }
+// }
 
 pub fn main() {
     assert_eq!(
