@@ -2,12 +2,14 @@ import { run as leet_2 } from './leet_2/index.mjs';
 import { run as leet_9 } from './leet_9/index.mjs';
 import { run as leet_13 } from './leet_13/index.mjs';
 import { run as leet_14 } from './leet_14/index.mjs';
+import { run as leet_20 } from './leet_20/index.mjs';
 
 export const tests = {
     leet_2,
     leet_9,
     leet_13,
-    leet_14
+    leet_14,
+    leet_20,
 };
 
 export function format(value) {
