@@ -8,6 +8,8 @@ mod leet_9;
 mod leet_13;
 mod leet_14;
 mod leet_20;
+mod leet_21;
+mod utils;
 
 fn format_duration(value: &Duration) -> String {
     let units = vec!["ns", "μs", "ms", "s"];
@@ -36,6 +38,7 @@ fn main() {
         ("leet_13", leet_13::main as fn()),
         ("leet_14", leet_14::main as fn()),
         ("leet_20", leet_20::main as fn()),
+        ("leet_21", leet_21::main as fn()),
     ]);    
 
     if args.len() > 0 {
