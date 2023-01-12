@@ -1,38 +1,4 @@
-// Definition for singly-linked list.
-#[derive(PartialEq, Eq, Clone, Debug)]
-pub struct ListNode {
-  pub val: i32,
-  pub next: Option<Box<ListNode>>
-}
-
-impl ListNode {
-  #[inline]
-  fn new(val: i32) -> Self {
-    ListNode {
-      next: None,
-      val
-    }
-  }
-}
-
-fn to_node(input: Vec<i32>) -> Option<Box<ListNode>> {
-    input.iter().rev().fold(None, |acc, &x| {
-        Some(Box::new(ListNode { val: x, next: acc }))
-    })
-}
-
-fn from_node(input: Option<Box<ListNode>>) -> i32 {
-    let mut result = vec![];
-
-    let mut node = input;
-
-    while let Some(l) = node {
-        result.push(l.val);
-        node = l.next;
-    }
-
-    result.iter().enumerate().map(|(index, value)| { value * 10_i32.pow(index as u32) }).sum()
-}
+use crate::utils::{ListNode,to_node,from_node};
 
 fn add_two_numbers(l1: Option<Box<ListNode>>, l2: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
     let mut result = Box::new(ListNode::new(0));
@@ -84,5 +50,5 @@ pub fn main() {
 
     let res = add_two_numbers(node1, node2);
 
-    assert_eq!(from_node(res), 807)
+    assert_eq!(from_node(&res), 807);
 }
