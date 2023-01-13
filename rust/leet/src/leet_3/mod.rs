@@ -32,7 +32,6 @@ fn length_of_longest_substring_best(s: String) -> i32 {
     let mut current = 0;
     for c in s.chars() {
         if let Some(last) = m.insert(c, current) {
-            println!("{} {} {}", before, last, current);
             before = max(before, last);
         }
         ans = max(ans, current - before);
