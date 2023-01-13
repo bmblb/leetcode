@@ -1,5 +1,6 @@
 use std::{cmp::max, collections::{HashSet,HashMap}};
 
+#[allow(dead_code)]
 fn length_of_longest_substring(s: String) -> i32 {
     let mut longest = 0 as usize;
 
@@ -24,7 +25,6 @@ fn length_of_longest_substring(s: String) -> i32 {
 
 // This is a proper solution taken from leet code. Plenty of times faster
 // and still robust
-#[allow(dead_code)]
 fn length_of_longest_substring_best(s: String) -> i32 {
     let mut m = HashMap::new();
     let mut ans = 0;
@@ -41,8 +41,8 @@ fn length_of_longest_substring_best(s: String) -> i32 {
 }
 
 pub fn main() {
-    assert_eq!(length_of_longest_substring(String::from("abcabcbb")), 3);
-    assert_eq!(length_of_longest_substring(String::from("bbbbb")), 1);
-    assert_eq!(length_of_longest_substring(String::from("pwwkew")), 3);
-    assert_eq!(length_of_longest_substring(String::from("a")), 1);
+    assert_eq!(length_of_longest_substring_best(String::from("abcabcbb")), 3);
+    assert_eq!(length_of_longest_substring_best(String::from("bbbbb")), 1);
+    assert_eq!(length_of_longest_substring_best(String::from("pwwkew")), 3);
+    assert_eq!(length_of_longest_substring_best(String::from("a")), 1);
 }
