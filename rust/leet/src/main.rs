@@ -4,6 +4,7 @@ use std::time::{Instant, Duration};
 
 mod leet_1;
 mod leet_2;
+mod leet_3;
 mod leet_9;
 mod leet_13;
 mod leet_14;
@@ -34,6 +35,7 @@ fn main() {
 
     let map: HashMap<&str, fn()> = HashMap::from([
         ("leet_2", leet_2::main as fn()),
+        ("leet_3", leet_3::main as fn()),
         ("leet_9", leet_9::main as fn()),
         ("leet_13", leet_13::main as fn()),
         ("leet_14", leet_14::main as fn()),
