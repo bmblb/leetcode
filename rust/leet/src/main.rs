@@ -10,6 +10,7 @@ mod leet_13;
 mod leet_14;
 mod leet_20;
 mod leet_21;
+mod leet_26;
 mod utils;
 
 fn format_duration(value: &Duration) -> String {
@@ -41,6 +42,7 @@ fn main() {
         ("leet_14", leet_14::main as fn()),
         ("leet_20", leet_20::main as fn()),
         ("leet_21", leet_21::main as fn()),
+        ("leet_26", leet_26::main as fn()),
     ]);    
 
     if args.len() > 0 {
