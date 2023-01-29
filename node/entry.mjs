@@ -5,6 +5,7 @@ import { run as leet_14 } from './leet_14/index.mjs';
 import { run as leet_20 } from './leet_20/index.mjs';
 import { run as leet_21 } from './leet_21/index.mjs';
 import { run as leet_26 } from './leet_26/index.mjs';
+import { run as leet_27 } from './leet_27/index.mjs';
 
 export const tests = {
     leet_2,
@@ -14,6 +15,7 @@ export const tests = {
     leet_20,
     leet_21,
     leet_26,
+    leet_27,
 };
 
 export function format(value) {
