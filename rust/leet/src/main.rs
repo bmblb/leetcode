@@ -12,6 +12,7 @@ mod leet_20;
 mod leet_21;
 mod leet_26;
 mod leet_27;
+mod leet_35;
 mod utils;
 
 fn format_duration(value: &Duration) -> String {
@@ -19,17 +20,22 @@ fn format_duration(value: &Duration) -> String {
     let mut ns = value.as_nanos() as u64;
     let mut result = vec![];
 
-    for name in units {
-        let val = ns % 1000;
-        result.push((name, val));
-        ns = ns / 1000;
-    }
+    if ns > 0 {
+        for name in units {
+            let val = ns % 1000;
+            result.push((name, val));
+            ns = ns / 1000;
+        }
 
-    result.iter().filter(|(_, value)| {
-        *value > 0
-    }).map(|(name, value)| {
-        format!("{value}{name}")
-    }).rev().collect::<Vec<String>>().join(" ")
+        result.iter().filter(|(_, value)| {
+            *value > 0
+        }).map(|(name, value)| {
+            format!("{value}{name}")
+        }).rev().collect::<Vec<String>>().join(" ")
+    }
+    else {
+        String::from("0ns")
+    }
 }
 
 fn main() {
@@ -45,6 +51,7 @@ fn main() {
         ("leet_21", leet_21::main as fn()),
         ("leet_26", leet_26::main as fn()),
         ("leet_27", leet_27::main as fn()),
+        ("leet_35", leet_35::main as fn()),
     ]);    
 
     if args.len() > 0 {
